@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<script src="js/fjs.js"></script>
+<html>
+<head>
+<title>Purchase Form</title>
+<style>
+  .div1{
+  border-style: solid;
+  border-color: #000000;
+  border-width: 5px;
+  width:  300px;
+  height: 400px;
+       }
+ .tdw{width: 155px;}
+</style>
+</head>
+<body onload="changenum()">
+<h3> Please fill the form.</h3>
+<table><tr><td><div>
+<table><tr><td>First Name <input id="fname" size="20"</td><td>Last Name<input type="text" size="20"id="lname"></td></tr></table>
+<table><tr><td>Address    <input type="text" size="50" id="addr"></td></tr></table>
+<table><tr><td>City <input type="text" size="15" id="cit"></td><td>Country <input type="text" size="10" id="country"></td><td>
+Zip Code <input type="text" size="6" id="zip"></td></tr></table><h3>Billing</h3>
+<table><tr><td><img src="pics/visa.png"></td><td><img src="pics/mc.png"></td><td><img src="pics/amex.jpg"></td><td><select id="mycard"><option id="visa">Visa</option> 
+<option id="mc">Master Card</option><option id="amex">Americam Express</option></select></td></tr></table>
+<table><tr><td>Card Number <input type="text" size="30" id="cardn"></td></tr></table>
+<table><tr><td>Expiration Date <input type="text" size="10" id="cardd"></td><td>Code <input type="text" size="5" id="cardv"></td></tr></table><button onclick="changenum()">Submit</button>
+</div></td><td><div class="div1"><table><tr><td class="tdw">Book </td><td class="tdw">  <select id="mynum"><option id="my1">1</option> 
+<option id="my2">2</option><option id="my3">3</option></select></td><td class="tdw"> <p id="bnum">  </p></td></tr></table>
+<table><tr><td class="tdw">Subtotal</td><td>.........</td><td id="bnums"></td></tr></table><br><br><br>
+<table><tr><td class="tdw">Shipping</td><td>...........</td><td>$   0</td></tr></table>
+<table><tr><td class="tdw">Tax</td><td>...........</td><td>$    0</td></tr></table><br>
+------------------------------------------------
+<table><tr><td class="tdw">Total</td><td>.........</td><td id="bnumt"></td></tr></table><br><br><br><center><button onclick="changenum()">Buy</button></center></div></td></tr></table>
+<p id="demo1"> </p>
+<P id="demo" ></p>
+</body>
+</html>
