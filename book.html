@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #111;
+}
+.prev1, .next1 {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next1 {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+.prev1:hover, .next1:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;}
+.div1{width:250px;}
+.div2{width:80%;}
+
+</style> </head>
+<body>
+<ul>
+  <li><a class="active" href="index.html">Home</a></li>
+  <li><a href="#news">News</a></li>
+  <li><a href="#contact">Contact</a></li>
+  <li><a href="#about">About</a></li>
+</ul>
+<table><tr><td><div class="div1" ><table><tr><td><img src="pics/jeld0.jpg" width="200" height="200"></td></tr><tr><td></td></tr><tr><td><img src="pics/jeld1.jpg" width="200" height="200"></td></tr><tr><td></td></tr><tr><td></td></tr></table> </div></td><td><iframe name="myframe"   width="700" height="450" src="pics/pano.jpg" frameborder="0"><table><tr><td>
+</iframe>
+<table><tr><td>
+<a id="test1" onclick="subpage();" href="pages/mypages1.htm" target="myframe"><img src="pics/prev.jpg"></a></td>
+<td ></td><td id="nummy" ></td><td id="td1" class="dot" width="500"><td><td id="td2" class="dot"><td><td id="td3" class="dot"><td><td id="td4" class="dot"><td><td id="td5" class="dot"><td><td id="td6" class="dot"><td><td id="td7" class="dot"><td><td>
+<a id="test"  onclick="addpage();" href="pages/mypages1.htm" target="myframe"><img src="pics/next.jpg"></a></td></tr></table></td></tr></table>
+<a class="prev1" onclick="subpage()">&#10094;</a>
+<a class="next1" onclick="addpage()">&#10095;</a> </td></tr></table>
+<p id="demo"></p><p id="demo1"></p>
+
+<script>
+var mylinks="index.html";
+var i=0,n;
+j=0;
+var lastnum=12;
+var j1=j+1; j2=j+2; j3=j+3; j4=j+4; j5=j+5; j6=j+6;
+function myimg1(p){
+var t=p;
+i=t;
+//  document.getElementById("demo1").innerHTML =t;
+myimg(t);
+}
+function myimg(p){
+var j=p;
+ if(j>(lastnum-7)){j=lastnum-7;}
+
+ // document.getElementById("demo").innerHTML =i+" , "+j+" , "+j2 +" , "+p;
+  var mylink='<a href=pages/mypages'+(j)+'.htm target="myframe"  onclick="myimg1(j);">'+(j)+"</a>";
+  var mylink1='<a href=pages/mypages'+(j+1)+'.htm target="myframe" onclick="myimg1(j1);">'+(j+1)+"</a>";
+  var mylink2='<a href=pages/mypages'+(j+2)+'.htm target="myframe" onclick="myimg1(j2);">'+(j+2)+"</a>";
+  var mylink3='<a href=pages/mypages'+(j+3)+'.htm target="myframe" onclick="myimg1(j3);">'+(j+3)+"</a>";
+  var mylink4='<a href=pages/mypages'+(j+4)+'.htm target="myframe" onclick="myimg1(j4);">'+(j+4)+"</a>";
+  var mylink5='<a href=pages/mypages'+(j+5)+'.htm target="myframe" onclick="myimg1(j5);">'+(j+5)+"</a>";
+  var mylink6='<a href=pages/mypages'+(j+6)+'.htm target="myframe" onclick="myimg1(j6);">'+(j+6)+"</a>";
+ document.getElementById("td1").innerHTML=  mylink; 
+ document.getElementById("td2").innerHTML=  mylink1;
+ document.getElementById("td3").innerHTML=  mylink2;
+ document.getElementById("td4").innerHTML=  mylink3;
+ document.getElementById("td5").innerHTML=  mylink4;
+ document.getElementById("td6").innerHTML=  mylink5;
+ document.getElementById("td7").innerHTML=  mylink6;
+}
+function addpage(){
+ if(i<lastnum){i++;}else{i=lastnum;}
+ mylinks="pages/mypages"+i+".htm";
+ document.getElementById("test").href = mylinks;
+myimg(i);}
+function subpage(){
+i--;
+if(i==0){i=1;}
+ mylinks="pages/mypages"+i+".htm";
+ document.getElementById("test1").href = mylinks;
+myimg(i);}
+</script></body></html>
