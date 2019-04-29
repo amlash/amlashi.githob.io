@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
+<style>
 ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #400;
+  background-color: #333;
 }
 
 li {
@@ -29,7 +28,7 @@ li a:hover {
 .prev1, .next1 {
   cursor: pointer;
   position: absolute;
-  top: 50%;
+  top: 30%;
   width: auto;
   padding: 16px;
   margin-top: -22px;
@@ -40,20 +39,23 @@ li a:hover {
   border-radius: 0 3px 3px 0;
   user-select: none;
 }
-
 /* Position the "next button" to the right */
 .next1 {
   right: 0;
   border-radius: 3px 0 0 3px;
 }
+.prev1 {
+  leftt: 0;
+  border-radius: 3px 0 0 3px;
+}
 .prev1:hover, .next1:hover {
   background-color: rgba(0,0,0,0.8);
 }
-.dot {
+.dot { 
   cursor: pointer;
   height: 15px;
   width: 15px;
-  margin: 0 2px;
+  margin: "red";
   background-color: #bbb;
   border-radius: 50%;
   display: inline-block;
@@ -63,51 +65,60 @@ li a:hover {
 .active, .dot:hover {
   background-color: #717171;}
 .div1{width:250px;}
-.div2{width:80%;}
+.div2{width:80%;
+background-color: #717171;}
 
 </style> </head>
-<body>
+<body  onload="myimg(1)">
 <ul>
   <li><a class="active" href="index.html">Home</a></li>
-  <li><a href="#news">News</a></li>
-  <li><a href="#contact">Contact</a></li>
+  <li><a href="book.html">Book</a></li>
+  <li><a href="guilty.html">in PDF</a></li>
   <li><a href="#about">About</a></li>
 </ul>
-<table><tr><td><div class="div1" ><table><tr><td><img src="pics/jeld0.jpg" width="200" height="200"></td></tr><tr><td></td></tr><tr><td><img src="pics/jeld1.jpg" width="200" height="200"></td></tr><tr><td></td></tr><tr><td></td></tr></table> </div></td><td><iframe name="myframe"   width="700" height="450" src="pics/pano.jpg" frameborder="0"><table><tr><td>
+<table><tr><td><div style="height:550px;width:100px;" ><table><tr><td></td></tr></table> </div></td><td><div id="div2"  style="height:450px;width:850px;"><iframe name="myframe"  style="height:450px;width:850px;"  src="pics/pano.jpg" frameborder="0"><table><tr><td>
 </iframe>
-<table><tr><td>
-<a id="test1" onclick="subpage();" href="pages/mypages1.htm" target="myframe"><img src="pics/prev.jpg"></a></td>
-<td ></td><td id="nummy" ></td><td id="td1" class="dot" width="500"><td><td id="td2" class="dot"><td><td id="td3" class="dot"><td><td id="td4" class="dot"><td><td id="td5" class="dot"><td><td id="td6" class="dot"><td><td id="td7" class="dot"><td><td>
-<a id="test"  onclick="addpage();" href="pages/mypages1.htm" target="myframe"><img src="pics/next.jpg"></a></td></tr></table></td></tr></table>
-<a class="prev1" onclick="subpage()">&#10094;</a>
-<a class="next1" onclick="addpage()">&#10095;</a> </td></tr></table>
-<p id="demo"></p><p id="demo1"></p>
+<a class="prev1" id="prev1" onclick="subpage();" href="pages/mypages1.htm" target="div2">&#10094;</a>
+<a class="next1" id="next1"  onclick="addpage();"  href="pages/mypages1.htm" target="div2">&#10095;</a>
+<table><tr><td width="200"></td><td><a id="bprev" onclick="subpage();" href="pages/mypages1.htm" target="myframe"><img src="pics/prev.jpg"></a></td><td><table><tr>
+<td  id="top" align="center"></td></tr>
+<tr>
+<td id="td1" class="dot" align="center"></td>
+<td id="td2" class="dot" align="center"></td>
+<td id="td3" class="dot" align="center"></td>
+<td id="td4" class="dot" align="center"></td>
+<td id="td5" class="dot" align="center"></td>
+<td id="td6" class="dot" align="center"></td>
+<td id="td7" class="dot" align="center"></td>
+</tr></table></td><td><a id="bnext"  onclick="addpage();" href="pages/mypages1.htm" target="myframe"><img src="pics/next.jpg"></a></td></tr></table>
+ </td></tr></table></div>
 
 <script>
-var mylinks="index.html";
 var i=0,n;
-j=0;
-var lastnum=12;
+var j=0; 
+var jold=0;
+var lastnum=25;
+var t=0;
 var j1=j+1; j2=j+2; j3=j+3; j4=j+4; j5=j+5; j6=j+6;
-function myimg1(p){
-var t=p;
-i=t;
-//  document.getElementById("demo1").innerHTML =t;
-myimg(t);
-}
-function myimg(p){
-var j=p;
- if(j>(lastnum-7)){j=lastnum-7;}
+function myimg1(p1){
+var js=p1+i;
+ if(js>(lastnum-6)){js=lastnum-6+p1;}
+ document.getElementById("top").innerHTML =  js ;
 
- // document.getElementById("demo").innerHTML =i+" , "+j+" , "+j2 +" , "+p;
-  var mylink='<a href=pages/mypages'+(j)+'.htm target="myframe"  onclick="myimg1(j);">'+(j)+"</a>";
-  var mylink1='<a href=pages/mypages'+(j+1)+'.htm target="myframe" onclick="myimg1(j1);">'+(j+1)+"</a>";
-  var mylink2='<a href=pages/mypages'+(j+2)+'.htm target="myframe" onclick="myimg1(j2);">'+(j+2)+"</a>";
-  var mylink3='<a href=pages/mypages'+(j+3)+'.htm target="myframe" onclick="myimg1(j3);">'+(j+3)+"</a>";
-  var mylink4='<a href=pages/mypages'+(j+4)+'.htm target="myframe" onclick="myimg1(j4);">'+(j+4)+"</a>";
-  var mylink5='<a href=pages/mypages'+(j+5)+'.htm target="myframe" onclick="myimg1(j5);">'+(j+5)+"</a>";
-  var mylink6='<a href=pages/mypages'+(j+6)+'.htm target="myframe" onclick="myimg1(j6);">'+(j+6)+"</a>";
- document.getElementById("td1").innerHTML=  mylink; 
+myimg(js);
+}
+function myimg(p2){ 
+  var j=p2;
+if(j>(lastnum-6)){j=lastnum-6;}
+  if(j<1){j=0;}i=j;
+  var mylink0='<a href=pages/mypage'+(j  )+'.html target="myframe" onclick="myimg1(j );">'+(j  )+"</a>";
+  var mylink1='<a href=pages/mypage'+(j+1)+'.html target="myframe" onclick="myimg1(j1);">'+(j+1)+"</a>";
+  var mylink2='<a href=pages/mypage'+(j+2)+'.html target="myframe" onclick="myimg1(j2);">'+(j+2)+"</a>";
+  var mylink3='<a href=pages/mypage'+(j+3)+'.html target="myframe" onclick="myimg1(j3);">'+(j+3)+"</a>";
+  var mylink4='<a href=pages/mypage'+(j+4)+'.html target="myframe" onclick="myimg1(j4);">'+(j+4)+"</a>";
+  var mylink5='<a href=pages/mypage'+(j+5)+'.html target="myframe" onclick="myimg1(j5);">'+(j+5)+"</a>";
+  var mylink6='<a href=pages/mypage'+(j+6)+'.html target="myframe" onclick="myimg1(j6);">'+(j+6)+"</a>";
+ document.getElementById("td1").innerHTML=  mylink0; 
  document.getElementById("td2").innerHTML=  mylink1;
  document.getElementById("td3").innerHTML=  mylink2;
  document.getElementById("td4").innerHTML=  mylink3;
@@ -115,15 +126,19 @@ var j=p;
  document.getElementById("td6").innerHTML=  mylink5;
  document.getElementById("td7").innerHTML=  mylink6;
 }
-function addpage(){
- if(i<lastnum){i++;}else{i=lastnum;}
- mylinks="pages/mypages"+i+".htm";
- document.getElementById("test").href = mylinks;
-myimg(i);}
+function addpage(){i++;
+ if(i>lastnum){i=lastnum;}
+ mylinks="pages/mypage"+i+".html";
+ document.getElementById("bnext").href = mylinks;
+ document.getElementById("next1").href = mylinks;
+document.getElementById("top").innerHTML =  i ;
+ myimg(i);}
 function subpage(){
 i--;
-if(i==0){i=1;}
- mylinks="pages/mypages"+i+".htm";
- document.getElementById("test1").href = mylinks;
-myimg(i);}
+if(i<1){i=1;}
+ mylinks="pages/mypage"+i+".html";
+ document.getElementById("bprev").href = mylinks;
+ document.getElementById("prev1").href = mylinks;
+document.getElementById("top").innerHTML =  i ;
+ myimg(i);}
 </script></body></html>
